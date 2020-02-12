@@ -116,3 +116,118 @@ assert vert([[0, 0, 0, 0, 0, 0, 0],
  [2, 0, 0, 0, 0, 0, 0],
  [2, 0, 0, 0, 0, 0, 0],
  [2, 0, 0, 0, 0, 0, 0]],2,2,0)==True
+
+def diag_haut(grille, j, lig, col):
+    n=1
+    if lig<3:
+        return False
+    if col>3:
+        if grille[lig-1][col-1]==j:
+            n+=1
+        if grille[lig-2][col-2]==j:
+            n+=1
+        if grille[lig-3][col-3]==j:
+            n+=1
+        if n==4:
+            return True
+    n=1
+    if col<3:
+        if grille[lig-1][col+1]==j:
+            n+=1
+        if grille[lig-2][col+2]==j:
+            n+=1
+        if grille[lig-3][col+3]==j:
+            n+=1
+        if n==4:
+            return True
+    n=1  
+    if col==3:
+        if grille[lig-1][col-1]==j:
+            n+=1
+        if grille[lig-2][col-2]==j:
+            n+=1
+        if grille[lig-3][col-3]==j:
+            n+=1
+        if n==4:
+            return True
+        n=1
+        if grille[lig-1][col+1]==j:
+            n+=1
+        if grille[lig-2][col+2]==j:
+            n+=1
+        if grille[lig-3][col+3]==j:
+            n+=1
+        if n==4:
+            return True
+    else:
+        return False
+assert diag_haut([[0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0],
+ [0, 1, 0, 0, 0, 0, 0]],1,5,1)==False
+assert diag_haut([[1, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0],
+ [1, 0, 0, 0, 0, 0, 0],
+ [0, 1, 0, 0, 0, 0, 0],
+ [0, 0, 1, 0, 0, 0, 0],
+ [0, 0, 0, 1, 0, 0, 0]],1,5,3)==True
+
+def diag_bas(grille, j, lig, col):
+    n=1
+    if lig>3:
+        return False
+    if col>3:
+        if grille[lig+1][col-1]==j:
+            n+=1
+        if grille[lig+2][col-2]==j:
+            n+=1
+        if grille[lig+3][col-3]==j:
+            n+=1
+        if n==4:
+            return True
+    n=1
+    if col<3:
+        if grille[lig+1][col+1]==j:
+            n+=1
+        if grille[lig+2][col+2]==j:
+            n+=1
+        if grille[lig+3][col+3]==j:
+            n+=1
+        if n==4:
+            return True
+    n=1  
+    if col==3:
+        if grille[lig+1][col-1]==j:
+            n+=1
+        if grille[lig+2][col-2]==j:
+            n+=1
+        if grille[lig+3][col-3]==j:
+            n+=1
+        if n==4:
+            return True
+        n=1
+        if grille[lig+1][col+1]==j:
+            n+=1
+        if grille[lig+2][col+2]==j:
+            n+=1
+        if grille[lig+3][col+3]==j:
+            n+=1
+        if n==4:
+            return True
+    else:
+        return False
+assert diag_bas([[0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0],
+ [0, 1, 0, 0, 0, 0, 0]],1,5,1)==False
+assert diag_bas([[1, 0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0, 0],
+ [1, 0, 0, 0, 0, 0, 0],
+ [0, 1, 0, 0, 0, 0, 0],
+ [0, 0, 1, 0, 0, 0, 0],
+ [0, 0, 0, 1, 0, 0, 0]],1,2,0)==True
+            
